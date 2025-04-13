@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.jsx";
 import SignIn from "./pages/SignIn.jsx";
 import PrivateRoute from "./routes/PrivateRoute.jsx";
-import DashboardLayout from "./layouts/DashboardLayout.jsx";
+import DashboardLayout from "./Layouts/DashboardLayout.jsx";
 import "./index.css";
 
 function App() {
