@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #3b82f6; /* blue-500 */
+  --color-accent: #10b981;  /* emerald-500 */
+}
+
+.dark {
+  --color-primary: #2563eb; /* darker blue */
+  --color-accent: #059669;
+}
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
