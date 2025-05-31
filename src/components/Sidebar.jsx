@@ -1,6 +1,6 @@
-// src/components/Sidebar.jsx
 import { Link, useLocation } from "react-router-dom";
 import { Home, Package, ShoppingCart, Users, Layers } from "lucide-react";
+import cart from '../assets/cart.png';
 
 const navItems = [
   { path: "/dashboard", label: "Dashboard", icon: <Home size={18} /> },
@@ -14,23 +14,29 @@ export default function Sidebar() {
   const { pathname } = useLocation();
 
   return (
-    <aside className="w-60 bg-white shadow h-screen p-4">
-      <h1 className="text-xl font-bold mb-6">👨‍💻 Vendor Base</h1>
-      <nav className="space-y-2">
-        {navItems.map((item) => (
-          <Link
-            to={item.path}
-            key={item.path}
-            className={`flex items-center gap-2 px-4 py-2 rounded-lg transition ${
-              pathname === item.path
-                ? "bg-blue-100 text-blue-600 font-semibold"
-                : "hover:bg-gray-100 text-gray-700"
-            }`}
-          >
-            {item.icon}
-            {item.label}
-          </Link>
-        ))}
+    <aside className="w-64 h-screen bg-white dark:bg-[#111827] border-r border-gray-200 dark:border-gray-700 shadow-md p-6 font-[Poppins,sans-serif] transition-colors duration-300">
+      <h1 className=" px-8 font-extrabold text-purple-600 mb-6 flex items-center gap-2">
+        <img src={cart} alt="Cart" className="w-32 h-32" />
+      </h1>
+
+      <nav className="space-y-5 text-[16px]">
+        {navItems.map((item) => {
+          const isActive = pathname === item.path;
+          return (
+            <Link
+              key={item.path}
+              to={item.path}
+              className={`flex items-center gap-3 px-4 py-2 rounded-lg font-medium transition ${
+                isActive
+                  ? "bg-blue-100 text-blue-700 dark:bg-blue-600/20 dark:text-blue-400"
+                  : "text-gray-700 hover:bg-gray-100 dark:text-gray-300 dark:hover:bg-gray-800"
+              }`}
+            >
+              {item.icon}
+              <span>{item.label}</span>
+            </Link>
+          );
+        })}
       </nav>
     </aside>
   );

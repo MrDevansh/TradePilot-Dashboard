@@ -11,7 +11,7 @@ export default function Products() {
   const handleAddProduct = (newProduct) => {
     setProducts((prev) => [
       ...prev,
-      { ...newProduct, id: Date.now().toString() },
+      { ...newProduct, id: "p" + Math.floor(Math.random() * 1000) },
     ]);
   };
 
@@ -29,38 +29,50 @@ export default function Products() {
   };
 
   return (
-    <div className="p-6">
-      <button
-        onClick={() => setShowAddProductModal(true)}
-        className="bg-green-600 text-white px-4 py-2 rounded-md mb-4"
-      >
-        + Add Product
-      </button>
+    <div className="p-6 min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 dark:from-[#111827] dark:to-[#1f2937] rounded-xl">
+      <div className="flex justify-between items-center mb-6">
+        <h2 className="text-3xl font-bold text-gray-800 dark:text-white">📦 Products</h2>
+        <button
+          onClick={() => setShowAddProductModal(true)}
+          className="px-5 py-2 bg-gradient-to-r from-green-500 to-emerald-600 text-white font-semibold rounded-lg shadow-lg hover:scale-105 transition"
+        >
+          + Add Product
+        </button>
+      </div>
 
-      <div className="overflow-x-auto">
-        <table className="w-full border border-gray-200 text-left">
-          <thead className="bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-200">
+      <div className="overflow-x-auto rounded-lg bg-white/70 dark:bg-gray-800/80 shadow-lg backdrop-blur border border-gray-200 dark:border-gray-700">
+        <table className="w-full text-left">
+          <thead className="bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-200 uppercase text-sm">
             <tr>
-              <th className="p-3">Product ID</th>
-              <th className="p-3">Name</th>
-              <th className="p-3">Category</th>
-              <th className="p-3">Price</th>
-              <th className="p-3">Stock</th>
-              <th className="p-3">Actions</th>
+              <th className="p-4">Product ID</th>
+              <th className="p-4">Name</th>
+              <th className="p-4">Category</th>
+              <th className="p-4">Price</th>
+              <th className="p-4">Stock</th>
+              <th className="p-4">Actions</th>
             </tr>
           </thead>
           <tbody>
             {products.map((product) => (
-              <tr key={product.id} className="border-b">
-                <td className="p-3">{product.id}</td>
-                <td className="p-3">{product.name}</td>
-                <td className="p-3">{product.category}</td>
-                <td className="p-3">${product.price}</td>
-                <td className="p-3">{product.stock}</td>
-                <td className="p-3">
+              <tr
+                key={product.id}
+                className="border-b dark:border-gray-700 hover:bg-purple-50 dark:hover:bg-gray-700 transition"
+              >
+                <td className="p-4 font-medium text-gray-900 dark:text-white">{product.id}</td>
+                <td className="p-4 text-gray-800 dark:text-gray-200">{product.name}</td>
+                <td className="p-4">
+                  <span className="px-2 py-1 bg-indigo-100 text-indigo-700 dark:bg-indigo-700 dark:text-white rounded-full text-xs font-semibold capitalize">
+                    {product.category}
+                  </span>
+                </td>
+                <td className="p-4 text-green-600 dark:text-green-400 font-semibold">
+                  ₹{product.price}
+                </td>
+                <td className="p-4 text-gray-700 dark:text-gray-300">{product.stock}</td>
+                <td className="p-4">
                   <button
                     onClick={() => handleEditClick(product)}
-                    className="text-blue-600 hover:underline"
+                    className="text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
                   >
                     Edit
                   </button>

@@ -47,28 +47,31 @@ export default function AddEditProductModal({
   };
 
   return (
-    <div className="fixed inset-0 bg-black/40 flex justify-center items-center z-50">
-      <div className="bg-white dark:bg-gray-900 p-6 rounded-lg shadow-lg w-[90%] max-w-lg">
-        <h2 className="text-xl font-bold mb-4">{isEdit ? "Edit Product" : "Add New Product"}</h2>
-        <form onSubmit={handleSubmit} className="space-y-4">
+    <div className="fixed inset-0 bg-black/50 flex justify-center items-center z-50">
+      <div className="bg-white dark:bg-gray-900 p-8 rounded-3xl shadow-xl w-full max-w-md">
+        <h2 className="text-2xl font-semibold mb-6 text-gray-900 dark:text-white">
+          {isEdit ? "Edit Product" : "Add New Product"}
+        </h2>
+        <form onSubmit={handleSubmit} className="space-y-6">
           <input
             name="name"
             value={form.name}
             onChange={handleChange}
             placeholder="Product Name"
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             required
           />
-          
-          {/* Category Dropdown */}
+
           <select
             name="category"
             value={form.category}
             onChange={handleChange}
-            className="w-full px-4 py-2 border rounded"
+            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             required
           >
-            <option value="" disabled>Select Category</option>
+            <option value="" disabled>
+              Select Category
+            </option>
             <option value="electronics">Electronics</option>
             <option value="fashion">Fashion</option>
             <option value="furniture">Furniture</option>
@@ -82,34 +85,41 @@ export default function AddEditProductModal({
             value={form.price}
             onChange={handleChange}
             placeholder="Price"
-            className="w-full px-4 py-2 border rounded"
+            min="0"
+            step="0.01"
+            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             required
           />
+
           <input
             name="stock"
             type="number"
             value={form.stock}
             onChange={handleChange}
             placeholder="Stock"
-            className="w-full px-4 py-2 border rounded"
+            min="0"
+            className="w-full px-5 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 dark:bg-gray-800 dark:border-gray-700 dark:text-white"
             required
           />
+
           <input
             type="file"
+            accept="image/*"
             onChange={handleImageChange}
-            className="w-full px-4 py-2 border rounded"
+            className="w-full text-gray-700 dark:text-gray-300"
           />
-          <div className="flex justify-end gap-3">
+
+          <div className="flex justify-end gap-4">
             <button
               type="button"
               onClick={onClose}
-              className="px-4 py-2 border rounded hover:bg-gray-100 dark:hover:bg-gray-800"
+              className="px-6 py-3 rounded-xl border border-gray-300 hover:bg-gray-100 dark:border-gray-700 dark:hover:bg-gray-800 dark:text-gray-300"
             >
               Cancel
             </button>
             <button
               type="submit"
-              className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+              className="px-6 py-3 rounded-xl bg-blue-600 text-white font-semibold hover:bg-blue-700 focus:ring-4 focus:ring-blue-400"
             >
               {isEdit ? "Update Product" : "Add Product"}
             </button>

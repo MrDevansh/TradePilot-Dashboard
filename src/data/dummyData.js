@@ -1,6 +1,6 @@
 // Stat cards data
 export const stats = [
-  { title: "Total Sales", value: "$15,000", icon: "💰" },
+  { title: "Total Sales", value: "₹15,000", icon: "💰" },
   { title: "Orders", value: "320", icon: "🛒" },
   { title: "Customers", value: "210", icon: "👥" },
   { title: "Low Stock", value: "5 Products", icon: "⚠️" },
