@@ -30,12 +30,12 @@ export default function Sidebar() {
   const { pathname } = useLocation();
 
   return (
-    <aside className=" mt-3 w-64 h-screen bg-white dark:bg-[#111827] border-r border-gray-200 dark:border-gray-700 shadow-md p-6 font-[Poppins,sans-serif] transition-colors duration-300">
+    <aside className="  w-64 h-screen bg-white dark:bg-[#111827] border-r border-gray-200 dark:border-gray-700 shadow-md p-6 font-[Poppins,sans-serif] transition-colors duration-300">
       {/* <h1 className=" px-8 font-extrabold text-purple-600 mb-6 flex items-center gap-2">
         <img src={cart} alt="Cart" className="w-32 h-32" />
       </h1>*/}
 
-      <nav className="space-y-5 text-[16px]">
+      <nav className="mt-3 space-y-5 text-[16px]">
         {navItems.map((item) => {
           const isActive = pathname === item.path;
           return (
