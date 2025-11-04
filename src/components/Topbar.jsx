@@ -15,14 +15,9 @@ export default function Topbar() {
   };
 
   return (
-    <header className="w-full mx-4 px-6 py-4 bg-white dark:bg-[#111827] shadow-sm flex justify-between items-center border-b border-gray-200 dark:border-gray-700 z-50">
-      {/* Logo / Brand */}
-      <h1 className="text-2xl font-extrabold bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 text-transparent bg-clip-text tracking-wide">
-        🛍️ TradePilot
-      </h1>
-
+    <header className="w-full mx-4 px-6 py-4 bg-white dark:bg-[#111827] shadow-sm flex justify-end items-center border-b border-gray-200 dark:border-gray-700 z-50">
       {/* Controls */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-4 ">
         {/* Theme toggle */}
         <button
           onClick={toggleTheme}
